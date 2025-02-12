@@ -17,7 +17,7 @@ const Login = () => {
       return;
     }
     if (!password) {
-      setError("Password is required");
+      setError("Please enter the password");
       return;
     }
 
@@ -31,7 +31,7 @@ const Login = () => {
       <div className="flex items-center justify-center mt-28">
         <div className="w-96 p-10 bg-white shadow-lg rounded-lg">
           <form onSubmit={handleLogin}>
-            <h4 className="text-2xl mb-7">Login</h4>
+            <h4 className="text-2xl font-bold mb-4">Login</h4>
             <input
               type="text"
               placeholder="Email"
@@ -45,13 +45,13 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+            {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
             <button type="submit" className="btn-primary">
               Login
             </button>
             <p className="text-sm text-center mt-4">
               Not registered yet?{" "}
-              <Link to="/signup" className="font">
+              <Link to="/signup" className="text-blue-500">
                 Create an Account
               </Link>
             </p>
