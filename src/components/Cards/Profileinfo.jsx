@@ -8,7 +8,7 @@ const Profileinfo = ({ onLogout }) => {
         {getInitials("Udith Ayeshmantha")}
       </div>
       <div className="flex flex-col items-end">
-        <p>Udith Ayeshmantha</p>
+        <p className="text-sm">Udith Ayeshmantha</p>
         <button
           className="text-sm cursor-pointer text-red-600"
           onClick={onLogout}

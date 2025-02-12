@@ -32,4 +32,7 @@
     width: 100%;
     margin: 8px 0;
   }
+  .icon-btn {
+    @apply text-xl text-slate-300 cursor-pointer hover:text-blue-500;
+  }
 }
