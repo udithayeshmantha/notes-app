@@ -2,8 +2,16 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import NoteCard from "../../components/Cards/NoteCard";
 import { MdAdd } from "react-icons/md";
+import AddEditNotes from "./AddEditNotes";
+import Modal from "react-modal";
 
 const Home = () => {
+  const [openaddEditNotes, setOpenAddEditNotes] = React.useState({
+    isShown: false,
+    type: "add",
+    data: null,
+  });
+
   return (
     <>
       <Navbar />
@@ -19,14 +27,34 @@ const Home = () => {
             onDelete={() => console.log("Delete")}
             onPinNote={() => console.log("Pin")}
           />
-          <button
-            className="w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-500 hover:bg-blue-600 absolute right-10 bottom-10"
-            onClick={() => console.log("Add")}
-          >
-            <MdAdd className="text-[32px] text-white" />
-          </button>
         </div>
       </div>
+
+      <button
+        className="w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-500 hover:bg-blue-600 absolute right-10 bottom-10"
+        onClick={() => {
+          setOpenAddEditNotes({ isShown: true, type: "add", data: null });
+        }}
+      >
+        <MdAdd className="text-[32px] text-white" />
+      </button>
+
+      <Modal
+        isOpen={openaddEditNotes.isShown}
+        onRequestClose={() => {}}
+        style={{
+          overlay: {
+            backgroundColor: "rgba(0,0,0,0.2)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          },
+        }}
+        contentLabel="Add Edit Notes"
+        className="w-[60%] xl:w-[35%] lg:w-[50%] max-h-3/4 bg-white rounded-md p-5 overflow-auto"
+      >
+        <AddEditNotes />
+      </Modal>
     </>
   );
 };
